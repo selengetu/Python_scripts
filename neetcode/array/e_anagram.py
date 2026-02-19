@@ -6,11 +6,12 @@ class Solution:
             return False
         
 
-        strS, strT = defaultdict(int), defaultdict(int)
+        strS, strT = {}, {}
 
         for i in range(len(s)):
-            strS[s[i]] +=1
-            strT[t[i]] +=1
+            strS[s[i]] = 1 + strS.get(s[i], 0)
+            strT[t[i]] = 1 + strT.get(t[i], 0)
+            
         return strS == strT
 
 if __name__ == "__main__":
